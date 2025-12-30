@@ -1,0 +1,16 @@
+#!name= 飓风相机@Anyeyey
+#!desc= 解锁Pro权限
+#!category= 白糖自用
+#!source= https://raw.githubusercontent.com/anyehttp/quantumult-x/3cc4701352893f87c68a7935065b2226ae92d024/Crack-Script/jfxj.sgmodule
+#!arguments= 
+#!arguments-desc= 
+#!openUrl= https://apps.apple.com/app/id6749835845
+#!date= 2025-11-02 18:00:00
+
+#仅供学习交流，请不要在国内传播，并售卖此脚本，觉得好用请支持开发者
+
+[Script]
+飓风相机专业版 = type=http-response,pattern=^https://base\.ysjf\.com/storm_auth/user/self,requires-body=1,max-size=0,binary-body-mode=0,script-path=https://raw.githubusercontent.com/baiitang/Sakura/main/Surge/Js/StormCam.js,script-update-interval=0
+
+[MITM]
+hostname =  %APPEND% base.ysjf.com

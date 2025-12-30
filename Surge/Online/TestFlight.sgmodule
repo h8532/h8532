@@ -1,0 +1,17 @@
+#!name= TestFlight自动加入@Mcdasheng
+#!desc= 获取自动加入TestFlight任务所需各项参数的重写文件
+#!category= 远程模块
+#!source= https://raw.githubusercontent.com/MCdasheng/QuantumultX/main/Scripts/myScripts/TestFlight.js
+#!arguments=
+#!arguments-desc=
+#!openUrl= https://apps.apple.com/app/id899247664
+#!date= 2025-09-13 18:00:00
+
+[Script]
+# 获取自动加入 TestFlight需要的各项参数
+TF_appIds = type=http-request, pattern=^https:\/\/testflight\.apple\.com\/v3\/accounts\/.*\/ru\/([^\/]+)(?!\/accept)$, script-path=https://raw.githubusercontent.com/MCdasheng/QuantumultX/main/Scripts/myScripts/TF_appIds.js, timeout=60
+
+TestFlight = type=cron, cronexp="30 10,20 * * *", script-path=https://raw.githubusercontent.com/MCdasheng/QuantumultX/main/Scripts/myScripts/TestFlight.js, timeout=60, wake-system=1
+
+[MITM]
+hostname = %APPEND% testflight.apple.com

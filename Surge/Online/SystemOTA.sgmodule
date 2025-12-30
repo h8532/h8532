@@ -1,0 +1,18 @@
+#!name= 系统更新屏蔽
+#!desc= 屏蔽 iOS/iPadOS 系统更新
+#!category= 订阅管理
+#!source=
+#!arguments= iOS:DOMAIN,iPadOS:hostname
+#!arguments-desc= 可自定义参数：默认启用，输入#关闭系统更新屏蔽
+#!openUrl=
+#!date= 2025-09-13 18:00:00
+
+[Rule]
+{{{DOMAIN}}},gdmf.apple.com,REJECT
+
+[URL Rewrite]
+# iPadOS
+^https:\/\/mesu\.apple\.com\/assets\/com_apple_MobileAsset_SoftwareUpdate\/com_apple_MobileAsset_SoftwareUpdate\.xml - reject
+
+[MITM]
+{{{iPadOS}}} = %APPEND% mesu.apple.com

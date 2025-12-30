@@ -1,0 +1,24 @@
+#!name= 豆瓣去广告@iKeLee
+#!desc= 移除开屏广告、各页面信息流广告、首页横幅、搜索填充词。需要签名IPA签名使用
+#!category= 白糖自用
+#!source= https://kelee.one/Tool/Loon/Lpx/DouBan_remove_ads.lpx
+#!arguments=
+#!arguments-desc=
+#!openUrl= https://apps.apple.com/app/id907002334
+#!date= 2025-09-13 18:00:00
+
+[Map Local]
+^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash data-type=text data="{}" status-code=200
+
+^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad data-type=text data="{}" status-code=200
+
+^https:\/\/m\.douban\.com\/rexxar\/api\/v\d\/market\/products\/ data-type=text data="{}" status-code=200
+
+^https:\/\/frodo\.douban\.com\/api\/v\d\/movie\/ad data-type=text data="{}" status-code=200
+
+^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner data-type=text data="{}" status-code=200
+
+^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words data-type=text data="{}" status-code=200
+
+[MITM]
+hostname = %APPEND% api.douban.com, frodo.douban.com, m.douban.com

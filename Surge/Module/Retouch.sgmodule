@@ -1,0 +1,17 @@
+#!name= Retouch@Weiren
+#!desc= 解锁会员 点恢复购买即可
+#!category= 白糖自用
+#!source= https://raw.githubusercontent.com/WeiGiegie/666/main/Retouch.js
+#!arguments=
+#!arguments-desc=
+#!openUrl= https://apps.apple.com/app/id1422581869
+#!date= 2025-09-13 18:00:00
+
+#!适用于Retouch 5.2.4
+#!touchretouch-消除笔及p图修图软件-神奇橡皮擦（恢复购买）
+
+[Script]
+Retouch = type=http-response, pattern=^https?:\/\/api.revenuecat.com\/v1\/receipts, script-path=https://raw.githubusercontent.com/WeiGiegie/666/main/Retouch.js, requires-body=true, max-size=-1, timeout=60
+
+[MITM]
+hostname = %APPEND% api.revenuecat.com

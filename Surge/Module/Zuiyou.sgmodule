@@ -1,0 +1,31 @@
+#!name= 最右去广告@ iKeLee
+#!desc= 移除开屏广告、信息流广告和广告轮播图
+#!category= 白糖自用
+#!source= https://kelee.one/Tool/Loon/Lpx/ZuiYou_remove_ads.lpx
+#!arguments=
+#!arguments-desc=
+#!openUrl= https://apps.apple.com/app/id942443472
+#!date= 2025-09-13 18:00:00
+
+[Rule]
+DOMAIN,adapi.izuiyou.com,REJECT,extended-matching,pre-matching
+URL-REGEX,"^http:\/\/mercury-gateway\.ixiaochuan\.cn\/mercury\/v1\/ad\/",REJECT-TINYGIF,extended-matching
+URL-REGEX,"^http:\/\/file-share\.izuiyou\.com\/octopus\/media\/templates\/search_home_page_(nv|nv_v2)\/search_home_page_nv",REJECT,extended-matching
+
+[URL Rewrite]
+^https?:\/\/api\.izuiyou\.com\/ad\/ - reject
+^https?:\/\/203\.107\.1\.1/\d+/ss - reject
+^https?:\/\/203\.107\.1\.33/\d+/ss - reject
+^https?:\/\/203\.107\.1\.66/\d+/ss - reject
+^https?:\/\/203\.107\.1\.67/\d+/ss - reject
+^https?:\/\/203\.107\.1\.97/\d+/ss - reject
+^https?:\/\/2401:b180:2000:30::1c\/\d+\/d - reject
+^https?:\/\/2401:b180:2000:20::10\/\d+\/d - reject
+
+[Map Local]
+^https?:\/\/api\.izuiyou\.com\/config\/get_banner data-type=text data="{}" status-code=200
+
+^https:\/\/zyfile\.izuiyou\.com\/zyfile\/c2\/a0\/[a-z0-9-]+\.json data-type=text data="{}" status-code=200
+
+[MITM]
+hostname = %APPEND% api.izuiyou.com, zyfile.izuiyou.com, 203.107.1.1, 203.107.1.33, 203.107.1.66, 203.107.1.67, 203.107.1.97

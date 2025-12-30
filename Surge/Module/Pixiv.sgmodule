@@ -1,0 +1,15 @@
+#!name= Pixiv解锁会员@LufsX
+#!desc= 解锁会员权益，去广告，非一次性解锁
+#!category= 白糖自用
+#!source= https://raw.githubusercontent.com/LufsX/Profiles/refs/heads/master/Module/Surge/pixiv.sgmodule
+#!arguments= 
+#!arguments-desc= 
+#!openUrl= https://apps.apple.com/app/id337248563
+#!date= 2025-11-02 18:00:00
+
+[Script]
+# > 解锁 Pixiv Premium
+pixiv = type=http-response, pattern=^https:\/\/oauth\.secure\.pixiv\.net\/auth\/token, script-path=https://ruleset.isteed.cc/Script/pixiv_premium.min.js, requires-body=true
+
+[MITM]
+hostname = %APPEND% oauth.secure.pixiv.net
